@@ -19,7 +19,7 @@ let Schema = new mongoose.Schema({
   title: {type: String },        // title of advert (we can standardize this)
   place: {type: String },        // place of petsitting: city, park,... user can choose detail of information
   description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
-  type: { type: bolean },        // 0-supply, 1-demand
+  type: { type: Bolean },        // 0-supply, 1-demand
   price: { type: Number },       // price offered/demanded
   image: { type: String },       // image of pet (reference to pet category)
   date: { type: String },        // date of pet sitting
