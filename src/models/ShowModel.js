@@ -1,4 +1,4 @@
-// Model de la route '/shows'
+// Model for adverts
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 import ShowSeeds from "../helpers/ShowSeeds";
 
 let Schema = new mongoose.Schema({
-  name: { type: String },         // le nom du concert
+ /* name: { type: String },         // le nom du concert
   venue: { type: String },        // le nom de la salle
   description: { type: String },  // la description
   capacity: { type: Number },     // la capacité du show
@@ -14,7 +14,16 @@ let Schema = new mongoose.Schema({
   image: { type: String },        // l'url de l'image
   date: { type: String },         // la date du concert
   lat: { type: String },          // latitude du lieu
-  lng: {type: String }            // longitude du lieu
+  lng: {type: String }            // longitude du lieu£*/
+  
+  title: {type: String },        // title of advert (we can standardize this)
+  place: {type: String },        // place of petsitting: city, park,... user can choose detail of information
+  description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
+  type: { type: Bolean },        // 0-supply, 1-demand
+  price: { type: Number },       // price offered/demanded
+  image: { type: String },       // image of pet (reference to pet category)
+  date: { type: String },        // date of pet sitting
+  user_id {type: Number}         // id of advertiser
 });
 
 let Model = mongoose.model('Show', Schema);
@@ -38,7 +47,7 @@ export default {
 
   createShow: (show) => {
     return Model.create({
-      name: show.name,
+      /*name: show.name,
       venue: show.venue,
       description: show.description,
       capacity: show.capacity,
@@ -46,13 +55,22 @@ export default {
       image: show.image,
       date: show.date,
       lat: show.lat,
-      lng: show.lng
+      lng: show.lng*/
+      
+      title: show.title,         // Should we change show to advert everywhere?
+      place: show.place,        
+      description: show.description,
+      type: show.type,        
+      price: show.price,
+      image: show.image,   
+      date: show.date, 
+      user_id: show.user_id
     });
   },
 
   updateShow: (_id, show) => {
     return Model.findOneAndUpdate({ _id }, {
-      name: show.name,
+      /*name: show.name,
       venue: show.venue,
       description: show.description,
       capacity: show.capacity,
@@ -60,7 +78,17 @@ export default {
       image: show.image,
       date: show.date,
       lat: show.lat,
-      lng: show.lng
+      lng: show.lng*/
+      
+      title: show.title,         // Should we change show to advert everywhere?
+      place: show.place,        
+      description: show.description,
+      type: show.type,        
+      price: show.price,
+      image: show.image,   
+      date: show.date,
+      user_id: show.user_id
+      
     }, {upsert: true}).exec();
   },
 
