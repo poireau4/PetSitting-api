@@ -32,7 +32,7 @@ server.set('views', path.resolve('./src/views'));
 server.engine('.hbs', exphbs(HandlebarsConfig));
 server.set('view engine', '.hbs');
 
-server.set('port', (process.env.PORT || 5000));
+server.set('port', (process.env.PORT || 5001));
 server.listen(server.get('port'), () => {
   console.log('Node app is running on port', server.get('port'));
 });
