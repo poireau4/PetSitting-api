@@ -4,7 +4,7 @@ import Errors from "../helpers/Errors";
 
 // Récupération du model
 import BookingModel from "../models/BookingModel";
-import ShowModel from "../models/ShowModel";
+import AdvertModel from "../models/AdvertModel";
 
 const bookings = () => {
   return BookingModel.getBookings()
