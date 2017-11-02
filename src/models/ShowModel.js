@@ -1,4 +1,4 @@
-// Model de la route '/shows'
+// Model for adverts
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
@@ -19,10 +19,11 @@ let Schema = new mongoose.Schema({
   title: {type: String },        // title of advert (we can standardize this)
   place: {type: String },        // place of petsitting: city, park,... user can choose detail of information
   description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
-  type: { type: bolean },        // 0-offer, 1-demand
+  type: { type: bolean },        // 0-supply, 1-demand
   price: { type: Number },       // price offered/demanded
   image: { type: String },       // image of pet (reference to pet category)
-  date: { type: String }         // date of pet sitting
+  date: { type: String },        // date of pet sitting
+  user_id {type: Number}         // id of advertiser
 });
 
 let Model = mongoose.model('Show', Schema);
@@ -62,7 +63,8 @@ export default {
       type: show.type,        
       price: show.price,
       image: show.image,   
-      date: show.date              
+      date: show.date, 
+      user_id: show.user_id
     });
   },
 
@@ -84,7 +86,8 @@ export default {
       type: show.type,        
       price: show.price,
       image: show.image,   
-      date: show.date 
+      date: show.date,
+      user_id: show.user_id
       
     }, {upsert: true}).exec();
   },
