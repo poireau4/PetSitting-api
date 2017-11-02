@@ -1,14 +1,16 @@
-// Model de la route '/bookings'
+// Model for the user?
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 
 let Schema = new mongoose.Schema({
-  username: { type: String }, // le nom de l'utilisateur
+  /*username: { type: String }, // le nom de l'utilisateur
   showId: { type: String },   // l'id du show
   seats: { type: Number },    // le nombre de places achetées
   createdAt: { type: Date },  // la date de création de la réservation
-  updatedAt: { type: Date },  // la date de modification de la réservation
+  updatedAt: { type: Date },  // la date de modification de la réservation*/
+  
+  
 });
 
 let Model = mongoose.model('Booking', Schema);
