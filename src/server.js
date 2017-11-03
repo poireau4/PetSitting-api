@@ -16,8 +16,9 @@ import HandlebarsConfig from "./helpers/HandlebarsConfig";
 // Récupération des controllers
 import SeedDbController from "./controllers/SeedDbController";
 import HomeController from "./controllers/HomeController";
-import ShowController from "./controllers/ShowController";
-import BookingController from "./controllers/BookingController";
+import AdvertController from "./controllers/AdvertController";
+import UserController from "./controllers/UserController";
+import BookingController from "./controllers/BookingController"; // A SUPPRIMER
 
 // Configuration du serveur
 const viewsPath = __dirname + '/views/';
@@ -32,7 +33,7 @@ server.set('views', path.resolve('./src/views'));
 server.engine('.hbs', exphbs(HandlebarsConfig));
 server.set('view engine', '.hbs');
 
-server.set('port', (process.env.PORT || 5001));
+server.set('port', (process.env.PORT || 5000));
 server.listen(server.get('port'), () => {
   console.log('Node app is running on port', server.get('port'));
 });
@@ -66,14 +67,23 @@ server.post('/seeddb', SeedDbController.seedDb);
 // Routes pour les vues
 server.get('/', HomeController.getIndex);
 
-server.get('/shows', ShowController.getShows);
-server.get('/shows/id/:id', ShowController.getShow);
-server.get('/shows/create', ShowController.getCreateShow);
-server.post('/shows/create', ShowController.postCreateShow);
-server.get('/shows/update/:id', ShowController.getUpdateShow);
-server.post('/shows/update/:id', ShowController.postUpdateShow);
-server.get('/shows/delete/:id', ShowController.getDeleteShow);
+server.get('/adverts', AdvertController.getAdverts);
+server.get('/adverts/id/:id', AdvertController.getAdvert);
+server.get('/adverts/create', AdvertController.getCreateAdvert);
+server.post('/adverts/create', AdvertController.postCreateAdvert);
+server.get('/adverts/update/:id', AdvertController.getUpdateAdvert);
+server.post('/adverts/update/:id', AdvertController.postUpdateAdvert);
+server.get('/adverts/delete/:id', AdvertController.getDeleteAdvert);
 
+server.get('/users', UserController.getUsers);
+server.get('/users/id/:id', UserController.getUser);
+server.get('/users/create', UserController.getCreateUser);
+server.post('/users/create', UserController.postCreateUser);
+server.get('/users/update/:id', UserController.getUpdateUser);
+server.post('/users/update/:id', UserController.postUpdateUser);
+server.get('/users/delete/:id', UserController.getDeleteUser);
+
+// A SUPPRIMER
 server.get('/bookings', BookingController.getBookings);
 server.get('/bookings/id/:id', BookingController.getBooking);
 server.get('/bookings/create', BookingController.getCreateBooking);
@@ -82,15 +92,23 @@ server.get('/bookings/update/:id', BookingController.getUpdateBooking);
 server.post('/bookings/update/:id', BookingController.postUpdateBooking);
 server.get('/bookings/delete/:id', BookingController.getDeleteBooking);
 
+
 // Routes pour les APIs
 server.get('/api/', HomeController.getIndexApi);
 
-server.get('/api/shows', ShowController.getShowsApi);
-server.get('/api/shows/id/:id', ShowController.getShowApi);
-server.post('/api/shows/create', ShowController.postCreateShowApi);
-server.post('/api/shows/update/:id', ShowController.postUpdateShowApi);
-server.post('/api/shows/delete/:id', ShowController.postDeleteShowApi);
+server.get('/api/adverts', AdvertController.getAdvertsApi);
+server.get('/api/adverts/id/:id', AdvertController.getAdvertApi);
+server.post('/api/adverts/create', AdvertController.postCreateAdvertApi);
+server.post('/api/adverts/update/:id', AdvertController.postUpdateAdvertApi);
+server.post('/api/adverts/delete/:id', AdvertController.postDeleteAdvertApi);
 
+server.get('/api/users', UserController.getUsersApi);
+server.get('/api/users/id/:id', UserController.getUserApi);
+server.post('/api/users/create', UserController.postCreateUserApi);
+server.post('/api/users/update/:id', UserController.postUpdateUserApi);
+server.post('/api/users/delete/:id', UserController.postDeleteUserApi);
+
+// A SUPPRIMER
 server.get('/api/bookings', BookingController.getBookingsApi);
 server.get('/api/bookings/id/:id', BookingController.getBookingApi);
 server.post('/api/bookings/create', BookingController.postCreateBookingApi);
