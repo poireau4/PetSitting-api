@@ -1,75 +1,63 @@
-// Model for adverts
+// Model for pets
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 
-import AdvertSeeds from "../helpers/AdvertSeeds";
+import PetSeeds from "../helpers/PetSeeds";
 
 let Schema = new mongoose.Schema({
-  id: {type: String};
-  title: {type: String },        // title of advert (we can standardize this)
-  location: {type: String },        // place of petsitting: city, park,... user can choose detail of information
-  description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
-  type: { type: Boolean },       // 0-supply, 1-demand
-  price: { type: Number },       // price offered/demanded
-  image: { type: String },       // image of pet (reference to pet category)
-  date: { type: String },        // date of pet sitting
-  user_id: {type: Number}        // id of advertiser
+  name: { type: String },
+  breed: { type: String },
+  birthDate: { type: Date },
+  description: { type: String },
+  image: { type: String }
 });
 
-let Model = mongoose.model('Advert', Schema);
-//let AdvertModel = mongoose.model('Advert', Schema);
+let Model = mongoose.model('Pet', Schema);
+//let PetModel = mongoose.model('Pet', Schema);
 
 export default {
-  seedAdvert: () => {
+  seedPet: () => {
     let promises = [];
-    for (let advert of AdvertSeeds){
-      promises[promises.legth] = Model.create(advert);
+    for (let pet of PetSeeds){
+      promises[promises.legth] = Model.create(pet);
     }
     return Promise.all(promises);
   },
 
-  getAdverts: () => {
+  getPets: () => {
     return Model.find({}).exec();
   },
 
-  getAdvert: (_id) => {
+  getPet: (_id) => {
     return Model.findOne({ _id }).exec();
   },
 
-  createAdvert: (advert) => {
+  createPet: (pet) => {
     return Model.create({
-      id: advert.id,
-      title: advert.title,
-      location: advert.place,        
-      description: advert.description,
-      type: advert.type,        
-      price: advert.price,
-      image: advert.image,   
-      date: advert.date, 
-      user_id: advert.user_id
+      name: pet.name,
+      breed: pet.breed,
+      birthDate: pet.birthDate,
+      description: pet.description,
+      image: pet.image
     });
   },
 
-  updateAdvert: (_id, advert) => {
+  updatePet: (_id, pet) => {
     return Model.findOneAndUpdate({ _id }, {      
-      id: advert.id
-      title: advert.title,
-      location: advert.place,        
-      description: advert.description,
-      type: advert.type,        
-      price: advert.price,
-      image: advert.image,   
-      date: advert.date, 
-      user_id: advert.user_id
+      name: pet.name,
+      breed: pet.breed,
+      birthDate: pet.birthDate,
+      description: pet.description,
+      image: pet.image
     }, {upsert: true}).exec();
   },
 
-  deleteAdvert: () => {
+  deletePet: () => {
     return Model.remove({}).exec();
   },
 
-  deleteAdvert: (_id) => {
+  deletePet: (_id) => {
     return Model.remove({ _id }).exec();
   },
 };

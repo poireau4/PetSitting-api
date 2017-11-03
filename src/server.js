@@ -18,6 +18,7 @@ import SeedDbController from "./controllers/SeedDbController";
 import HomeController from "./controllers/HomeController";
 import AdvertController from "./controllers/AdvertController";
 import UserController from "./controllers/UserController";
+import PetController from "./controllers/PetController";
 import BookingController from "./controllers/BookingController"; // A SUPPRIMER
 
 // Configuration du serveur
@@ -83,6 +84,14 @@ server.get('/users/update/:id', UserController.getUpdateUser);
 server.post('/users/update/:id', UserController.postUpdateUser);
 server.get('/users/delete/:id', UserController.getDeleteUser);
 
+server.get('/pets', PetController.getPets);
+server.get('/pets/id/:id', PetController.getPet);
+server.get('/pets/create', PetController.getCreatePet);
+server.post('/pets/create', PetController.postCreatePet);
+server.get('/pets/update/:id', PetController.getUpdatePet);
+server.post('/pets/update/:id', PetController.postUpdatePet);
+server.get('/pets/delete/:id', PetController.getDeletePet);
+
 // A SUPPRIMER
 server.get('/bookings', BookingController.getBookings);
 server.get('/bookings/id/:id', BookingController.getBooking);
@@ -107,6 +116,12 @@ server.get('/api/users/id/:id', UserController.getUserApi);
 server.post('/api/users/create', UserController.postCreateUserApi);
 server.post('/api/users/update/:id', UserController.postUpdateUserApi);
 server.post('/api/users/delete/:id', UserController.postDeleteUserApi);
+
+server.get('/api/pets', PetController.getPetsApi);
+server.get('/api/pets/id/:id', PetController.getPetApi);
+server.post('/api/pets/create', PetController.postCreatePetApi);
+server.post('/api/pets/update/:id', PetController.postUpdatePetApi);
+server.post('/api/pets/delete/:id', PetController.postDeletePetApi);
 
 // A SUPPRIMER
 server.get('/api/bookings', BookingController.getBookingsApi);

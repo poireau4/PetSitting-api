@@ -20,7 +20,7 @@ const adverts = () => {
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
     let response = [];
     for (let advert of data){
-      // On parcours data. pour chaque élément, on garde les champs name, venue, description, capacity, price, image et date
+      // On parcours data. pour chaque élément, on garde les champs ...
       response[response.length] = {
         id: advert._id,
         title: advert.title,
@@ -28,10 +28,10 @@ const adverts = () => {
         description: advert.description,
         type: advert.type,
         price: advert.price,
-        //image: advert.image,
         date: advert.date,
         userId: advert.userId,
-        petId: advert.petId
+        petId: advert.petId,
+        activated: advert.activated
       }
     }
 
@@ -60,10 +60,10 @@ const advert = (_id) => {
       description: advert.description,
       type: advert.type,
       price: advert.price,
-      //image: advert.image,
       date: advert.date,
       userId: advert.userId,
-      petId: advert.petId
+      petId: advert.petId,
+      activated: advert.activated
     };
     return response;
   });
@@ -116,7 +116,6 @@ export default {
 
   postCreateAdvert: (req, res) => {
     let advert = {
-      //id: req.body.id,
       title: req.body.title,
       location: req.body.location,
       description: req.body.description,
@@ -125,7 +124,8 @@ export default {
       image: req.body.image,
       date: req.body.date,
       userId: req.body.userId,
-      petId: req.body.petId
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     createAdvert(advert)
@@ -149,7 +149,6 @@ export default {
 
   postUpdateAdvert: (req, res) => {
     let advert = {
-      //id: req.body.id,
       title: req.body.title,
       location: req.body.location,
       description: req.body.description,
@@ -158,7 +157,8 @@ export default {
       image: req.body.image,
       date: req.body.date,
       userId: req.body.userId,
-      petId: req.body.petId
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     updateAdvert(req.params.id, advert)
@@ -217,7 +217,8 @@ export default {
       image: req.body.image,
       date: req.body.date,
       userId: req.body.userId,
-      petId: req.body.petId
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     createAdvert(advert)
@@ -231,7 +232,6 @@ export default {
 
   postUpdateAdvertApi: (req, res) => {
     let advert = {
-      //id: req.body.id,
       title: req.body.title,
       location: req.body.location,
       description: req.body.description,
@@ -239,7 +239,9 @@ export default {
       price: req.body.price,
       image: req.body.image,
       date: req.body.date,
-      userId: req.body.userId
+      userId: req.body.userId,
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     updateAdvert(req.params.id, advert)

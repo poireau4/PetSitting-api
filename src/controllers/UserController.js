@@ -1,4 +1,4 @@
-// Controller de la route '/shows'
+// Controller de la route '/users'
 import _ from "lodash";
 import Errors from "../helpers/Errors";
 
@@ -47,7 +47,7 @@ const user = (_id) => {
   // Celle ci renvoie l'user dont l'id est _id
   return UserModel.getUser(_id)
   .then((data) => {
-    // On récupère ici data qui est une liste de shows
+    // On récupère ici data qui est une liste de users
 
     if (data === null) {
       // Si data est vide, nous renvoyons l'erreur 'noUserError'
@@ -145,7 +145,7 @@ export default {
   getUpdateUser: (req, res) => {
     user(req.params.id)
     .then((data) => {
-      res.render('user/updateShow', { user: data });
+      res.render('user/updateUser', { user: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
@@ -193,7 +193,7 @@ export default {
     users()
     .then((data) => {
       // data contient maintenant la valeur retournée par la fonction _.sortBy
-      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de shows
+      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de users
       res.send(data);
     }, (err) => {
       // Si une erreur a été renvoyée avec la fonctions throw new Error(), nous atterrissons ici
@@ -203,7 +203,7 @@ export default {
   },
 
   getUserApi: (req, res) => {
-    show(req.params.id)
+    user(req.params.id)
     .then((data) => {
       res.send(data);
     }, (err) => {
@@ -251,7 +251,7 @@ export default {
       image: req.body.image
     };
 
-    updateUser(req.params.id, show)
+    updateUser(req.params.id, user)
     .then((data) => {
       res.send('User successfully updated');
     }, (err) => {
@@ -261,7 +261,7 @@ export default {
   },
 
   postDeleteUserApi: (req, res) => {
-    deleteShow(req.params.id)
+    deleteUser(req.params.id)
     .then((data) => {
       res.send('User successfully deleted');
     }, (err) => {

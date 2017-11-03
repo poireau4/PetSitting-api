@@ -1,4 +1,4 @@
-// Model for adverts
+// Model for users
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
@@ -11,7 +11,7 @@ let Schema = new mongoose.Schema({
   lastName: {type: String },
   email: {type: String },
   password: {type: String },
-  birthDate: {type: String },
+  birthDate: {type: Date },
   location: {type: String },      // address
   phoneNumber: {type: Number },
   status: {type: Boolean },       // online = true / offline = false
@@ -20,15 +20,15 @@ let Schema = new mongoose.Schema({
   image: { type: String },        // image of himself
 });
 
-let Model = mongoose.model('Advert', Schema);
-//let AdvertModel = mongoose.model('Advert', Schema);
+let Model = mongoose.model('User', Schema);
+//let UserModel = mongoose.model('User', Schema);
 
 export default {
   // utile ?
   seedUser: () => {
     let promises = [];
-    for (let advert of AdvertSeeds){
-      promises[promises.legth] = Model.create(advert);
+    for (let user of UserSeeds){
+      promises[promises.legth] = Model.create(user);
     }
     return Promise.all(promises);
   },

@@ -21,6 +21,17 @@ const list = {
     error: 'noUserError',
     error_description: 'Cet utilisateur n\'existe pas'
   },
+  noPetsError: {
+    code: 500,
+    error: 'noPetsError',
+    error_description: 'La base ne contient pas d\'animal'
+  },
+  noUserError: {
+    code: 500,
+    error: 'noPetError',
+    error_description: 'Cet animal n\'existe pas'
+  },
+  // A SUPPRIMER
   noBookingsError: {
     code: 500,
     error: 'noBookingsError',
