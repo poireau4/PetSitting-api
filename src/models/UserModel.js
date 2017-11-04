@@ -11,9 +11,9 @@ let Schema = new mongoose.Schema({
   lastName: {type: String },
   email: {type: String },
   password: {type: String },
-  birthDate: {type: Date },
+  birthDate: {type: String },
   location: {type: String },      // address
-  phoneNumber: {type: Number },
+  phoneNumber: {type: String },
   status: {type: Boolean },       // online = true / offline = false
   tabPet: {type: String },        // all pets owned
   description: { type: String },  // description of habits

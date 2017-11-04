@@ -11,7 +11,7 @@ let Schema = new mongoose.Schema({
   description: { type: String },  // description of petsitting: walking with my dog, nurishing my cat,...
   type: { type: Boolean },        // 0-supply, 1-demand
   price: { type: Number },        // price offered/demanded
-  date: { type: Date },           // date of pet sitting
+  date: { type: String },           // date of pet sitting
   userId: { type: String },       // id of advertiser
   petId: { type: String },
   activated: { type: Boolean }    // annonce activée et visible ou non
