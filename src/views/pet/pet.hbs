@@ -1,1 +1,21 @@
+<h1>Pet</h1>
 
+<div>
+  <div>name : {{pet.name}}</div>
+  <div>breed : {{pet.breed}}</div>
+  <div>description : {{pet.description}}</div>
+  <div>birthDate : {{pet.birthDate}}</div> 
+  <div>image : {{pet.image}}</div>
+</div>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/pets/create" role="button">
+    Add a pet
+  </a>
+  <a class="btn btn-secondary" href="/pets/update/{{advert.id}}" role="button">
+    Update
+  </a>
+  <a class="btn btn-danger" href="/pets/delete/{{advert.id}}" role="button">
+    Delete
+  </a>
+</div>
