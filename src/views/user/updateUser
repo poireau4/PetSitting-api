@@ -2,7 +2,7 @@
 
 <form action="/users/update/{{user.id}}" method="post">
   <div class="form-group">
-    <label for="userName">Usernam*</label>
+    <label for="userName">Username*</label>
     <input value="{{user.userName}}" class="form-control" type="text" id="userName" name="username" placeholder="myusername" required>
   </div>
 
@@ -22,7 +22,7 @@
   </div>
 
  <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">Password*</label>
     <input value="{{user.password}}" class="form-control" type="text" id="password" name="password" placeholder="146Xpfh8O" required>
   </div>
   
@@ -32,17 +32,17 @@
   </div>
 
  <div class="form-group">
-    <label for="location">Address</label>
+    <label for="location">Address*</label>
     <input value="{{user.location}}" class="form-control" type="text" id="location" name="location" placeholder="1 Rue de la liberation, 75000 Paris, France">
   </div>
 
  <div class="form-group">
-    <label for="phoneNumber">Phonenumber</label>
+    <label for="phoneNumber">Phonenumber*</label>
     <input value="{{user.phoneNumber}}" class="form-control" type="text" id="phoneNumber" name="phoneNumber" placeholder="+3365719080">
   </div>
 
   <div class="form-group">
-    <label for="description">Description</label>
+    <label for="description">Description*</label>
     <input value="{{user.description}}" class="form-control" type="text" id="description" name="description" placeholder="Description of yourself">
   </div>
 
