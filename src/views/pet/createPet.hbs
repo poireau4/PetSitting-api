@@ -1,1 +1,36 @@
-<h1> create pet </h1>
+<h1>Create pet</h1>
+
+
+<form action="/pets/create" method="post">
+  <div class="form-group">
+    <label for="name">Name*</label>
+    <input class="form-control" type="text" id="name" name="name" placeholder="Sisi" required>
+  </div>
+
+  <div class="form-group">
+    <label for="breed">Breed*</label>
+    <input class="form-control" type="text" id="breed" name="breed" placeholder="Cat" required>
+  </div>
+
+  <div class="form-group">
+    <label for="birthDate">Birthdate*</label>
+    <input class="form-control" type="date" id="birthDate" name="birthDate">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description*</label>
+    <input class="form-control" type="text" id="description" name="description" placeholder="Young red cat who loves to cuddle" >
+  </div>
+
+ <div class="form-group">
+    <label for="image">Image</label>
+    <input class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
+  </div>
+
+  
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">
+      Create
+    </button>
+  </div>
+</form>
