@@ -38,7 +38,6 @@ export default {
 
   createAdvert: (advert) => {
     return Model.create({
-      id: advert.id
       title: advert.title,
       location: advert.place,        
       description: advert.description,
@@ -52,7 +51,6 @@ export default {
 
   updateAdvert: (_id, advert) => {
     return Model.findOneAndUpdate({ _id }, {      
-      id: advert.id
       title: advert.title,
       location: advert.place,        
       description: advert.description,
