@@ -1,34 +1,29 @@
-<h1>Create show</h1>
+<h1>Create advert</h1>
 
 <form action="/shows/create" method="post">
   <div class="form-group">
-    <label for="name">Name*</label>
-    <input class="form-control" type="text" id="name" name="name" placeholder="Nom du concert" required>
+    <label for="title">Title*</label>
+    <input class="form-control" type="text" id="title" name="title" placeholder="Demand/supply pet task" required>
   </div>
 
   <div class="form-group">
-    <label for="venue">Venue*</label>
-    <input class="form-control" type="text" id="venue" name="venue" placeholder="Nom de la salle" required>
+    <label for="location">Location*</label>
+    <input class="form-control" type="text" id="location" name="location" placeholder="London - Regent's Park" required>
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input class="form-control" type="text" id="description" name="description" placeholder="Description du concert">
+    <input class="form-control" type="text" id="description" name="description" placeholder="Description of petsitting task">
   </div>
 
   <div class="form-group">
-    <label for="capacity">Capacity</label>
-    <input class="form-control" type="number" id="capacity" name="capacity" placeholder="Ex: 500">
+    <label for="type">Type</label>
+    <input class="form-control" type="Boolean" id="type" name="type" placeholder="0 if supply - 1 if demand" required>
   </div>
 
   <div class="form-group">
-    <label for="price">Price*</label>
+    <label for="price">Price</label>
     <input class="form-control" type="number" id="price" name="price" placeholder="Ex: 30" required>
-  </div>
-
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
   </div>
 
   <div class="form-group">
@@ -37,13 +32,13 @@
   </div>
 
   <div class="form-group">
-    <label for="lat">Latitude</label>
-    <input class="form-control" type="text" id="lat" name="lat" placeholder="Latitude">
+    <label for="userId">User-id</label>
+    <input class="form-control" type="number" id="userId" name="userId" placeholder="ex 00678956" required>
   </div>
 
   <div class="form-group">
-    <label for="lng">Longitude</label>
-    <input class="form-control" type="text" id="lng" name="lng" placeholder="Longitude">
+    <label for="petId">Pet-id</label>
+    <input class="form-control" type="number" id="petId" name="petId" placeholder="ex 0056780">
   </div>
 
   <div class="text-center">
