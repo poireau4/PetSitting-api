@@ -1,49 +1,44 @@
-<h1>Update show</h1>
+<h1>Update advert</h1>
 
-<form action="/shows/update/{{show.id}}" method="post">
+<form action="/adverts/update/{{advert.id}}" method="post">
   <div class="form-group">
-    <label for="name">Name*</label>
-    <input value="{{show.name}}" class="form-control" type="text" id="name" name="name" placeholder="Nom du concert" required>
+    <label for="title">Title*</label>
+    <input value="{{advert.title}}" class="form-control" type="text" id="title" name="title" placeholder="Demand/supply pet task" required>
   </div>
 
   <div class="form-group">
-    <label for="venue">Venue*</label>
-    <input value="{{show.venue}}" class="form-control" type="text" id="venue" name="venue" placeholder="Nom de la salle" required>
+    <label for="location">Location*</label>
+    <input value="{{advert.location}}" class="form-control" type="text" id="location" name="location" placeholder="London - Regent's park" required>
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input value="{{show.description}}" class="form-control" type="text" id="description" name="description" placeholder="Description du concert">
+    <input value="{{advert.description}}" class="form-control" type="text" id="description" name="description" placeholder="Description of pet sitting task">
   </div>
 
   <div class="form-group">
-    <label for="capacity">Capacity</label>
-    <input value="{{show.capacity}}" class="form-control" type="number" id="capacity" name="capacity" placeholder="Ex: 500">
+    <label for="type">Type</label>
+    <input value="{{advert.type}}" class="form-control" type="Boolean" id="type" name="type" placeholder="0-supply, 1-demand" required>
   </div>
 
   <div class="form-group">
     <label for="price">Price*</label>
-    <input value="{{show.price}}" class="form-control" type="number" id="price" name="price" placeholder="Ex: 30" required>
+    <input value="{{advert.price}}" class="form-control" type="number" id="price" name="price" placeholder="Ex: 30" required>
   </div>
 
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input value="{{show.image}}" class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
-  </div>
-
-  <div class="form-group">
+ <div class="form-group">
     <label for="date">Date</label>
-    <input value="{{show.date}}" class="form-control" type="date" id="date" name="date">
+    <input value="{{advert.date}}" class="form-control" type="date" id="date" name="date" required>
   </div>
 
   <div class="form-group">
-    <label for="lat">Latitude</label>
-    <input value="{{show.lat}}" class="form-control" type="text" id="lat" name="lat" placeholder="Latitude">
+    <label for="userId">User-ID</label>
+    <input value="{{advert.userId}}" class="form-control" type="number" id="userId" name="userId" placeholder="Ex: 0006789">
   </div>
 
   <div class="form-group">
-    <label for="lng">Longitude</label>
-    <input value="{{show.lng}}" class="form-control" type="text" id="lng" name="lng" placeholder="Longitude">
+    <label for="petId">Pet-ID</label>
+    <input value="{{advert.petId}}" class="form-control" type="number" id="petId" name="petId" placeholder="Ex: 006789">
   </div>
 
   <div class="text-center">
