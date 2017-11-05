@@ -7,3 +7,5 @@ Questions:
   2. Model/booking: can we make this the user? -> NO BUT USER CREATED
   3. Delete Model/booking
   4. Create Model/pet
+
+Should the userId in the advert model be the same as the username in the user model?
