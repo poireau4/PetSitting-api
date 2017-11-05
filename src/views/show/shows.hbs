@@ -1,32 +1,33 @@
-<h1>Shows</h1>
+<h1>Adverts</h1>
 
 <table class="table">
  <thead>
-   <th>Name</th>
-   <th>Venue</th>
+   <th>Title</th>
+   <th>Location</th>
    <th>Description</th>
-   <th>Capacity</th>
+   <th>Type</th>
    <th>Price</th>
    <th>Date</th>
-   <th>Actions</th>
+   <th>UserID</th>
+   <th>PetID</th>
  </thead>
 
-  {{#list shows}}
+  {{#list adverts}}
 
   <tr>
     <td>
-      <a class="btn btn-secondary btn-sm" href="/shows/id/{{id}}" role="button">
-        {{name}}
+      <a class="btn btn-secondary btn-sm" href="/adverts/id/{{id}}" role="button">
+        {{title}}
       </a>
     </td>
     <td>
-      {{venue}}
+      {{location}}
     </td>
     <td>
       {{description}}
     </td>
     <td>
-      {{capacity}}
+      {{type}}
     </td>
     <td>
       {{price}}
@@ -34,11 +35,17 @@
     <td>
       {{date}}
     </td>
+     <td>
+      {{userId}}
+    </td>
     <td>
-      <a class="btn btn-outline-secondary btn-sm" href="/shows/update/{{id}}" role="button">
+      {{petId}}
+    </td>
+    <td>
+      <a class="btn btn-outline-secondary btn-sm" href="/adverts/update/{{id}}" role="button">
         Update
       </a>
-      <a class="btn btn-outline-danger btn-sm" href="/shows/delete/{{id}}" role="button">
+      <a class="btn btn-outline-danger btn-sm" href="/adverts/delete/{{id}}" role="button">
         Delete
       </a>
     </td>
@@ -48,7 +55,7 @@
 </table>
 
 <div class="text-center">
-  <a class="btn btn-primary" href="/shows/create" role="button">
-    Add a show
+  <a class="btn btn-primary" href="/advers/create" role="button">
+    Add an advert
   </a>
 </div>
