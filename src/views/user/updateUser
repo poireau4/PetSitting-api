@@ -1,0 +1,59 @@
+<h1>Update user</h1>
+
+<form action="/users/update/{{user.id}}" method="post">
+  <div class="form-group">
+    <label for="userName">Usernam*</label>
+    <input value="{{user.userName}}" class="form-control" type="text" id="userName" name="username" placeholder="myusername" required>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">Firstname*</label>
+    <input value="{{user.firstName}}" class="form-control" type="text" id="firstName" name="firstName" placeholder="Sophie" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">Lastname*</label>
+    <input value="{{user.lastName}}" class="form-control" type="text" id="lastName" name="lastName" placeholder="Dubois">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email*</label>
+    <input value="{{user.emal}}" class="form-control" type="text" id="email" name="email" placeholder="sophie.dubois@hotmail.com" required>
+  </div>
+
+ <div class="form-group">
+    <label for="password">Password</label>
+    <input value="{{user.password}}" class="form-control" type="text" id="password" name="password" placeholder="146Xpfh8O" required>
+  </div>
+  
+ <div class="form-group">
+    <label for="birthDate">Birthday</label>
+    <input value="{{user.birthDate}}" class="form-control" type="date" id="birthDate" name="BirhtDate">
+  </div>
+
+ <div class="form-group">
+    <label for="location">Address</label>
+    <input value="{{user.location}}" class="form-control" type="text" id="location" name="location" placeholder="1 Rue de la liberation, 75000 Paris, France">
+  </div>
+
+ <div class="form-group">
+    <label for="phoneNumber">Phonenumber</label>
+    <input value="{{user.phoneNumber}}" class="form-control" type="text" id="phoneNumber" name="phoneNumber" placeholder="+3365719080">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input value="{{user.description}}" class="form-control" type="text" id="description" name="description" placeholder="Description of yourself">
+  </div>
+
+<div class="form-group">
+    <label for="image">Image</label>
+    <input value="{{user.image}}" class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">
+      Update
+    </button>
+  </div>
+</form>
