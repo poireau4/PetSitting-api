@@ -1,1 +1,28 @@
+<h1>User</h1>
 
+<div>
+  <div>username : {{user.username}}</div>
+  <div>firstname : {{user.firstname}}</div>
+  <div>lastname : {{user.lastname}}</div>
+  <div>email : {{user.email}}</div> 
+  <div>password : {{user.password}}</div>
+  <div>birthDate : {{user.birthDate}}</div>
+  <div>location : {{user.location}}</div>
+  <div>phoneNumber : {{user.phoneNumber}}</div>
+  <div>description : {{user.description}}</div>
+  <div>image : {{user.image}}</div>
+  <div>tabPet : {{user.tabPet}}</div>
+</div>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/users/create" role="button">
+    Create a user profile
+  </a>
+  <a class="btn btn-secondary" href="/users/update/{{user.id}}" role="button">
+    Update
+  </a>
+  <a class="btn btn-danger" href="/users/delete/{{user.id}}" role="button">
+    Delete
+  </a>
+</div>
+© 2017 GitHub, Inc.
