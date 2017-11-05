@@ -1,1 +1,69 @@
+<h1>Users</h1>
 
+<table class="table">
+ <thead>
+   <th>Username</th>
+   <th>Firstname</th>
+   <th>Lastname</th>
+   <th>Email</th>
+   <th>Password</th>
+   <th>Birthday</th>
+   <th>Location</th>
+   <th>Phonenumber</th>
+   <th>Description</th>
+   <th>Image</th>
+ </thead>
+
+  {{#list users}}
+
+  <tr>
+    <td>
+      <a class="btn btn-secondary btn-sm" href="/users/id/{{id}}" role="button">
+        {{title}}
+      </a>
+    </td>
+    <td>
+      {{userName}}
+    </td>
+    <td>
+      {{firstName}}
+    </td>
+    <td>
+      {{lastName}}
+    </td>
+    <td>
+      {{email}}
+    </td>
+    <td>
+      {{password}}
+    </td>
+     <td>
+      {{birthDate}}
+    </td>
+    <td>
+      {{phoneNumber}}
+    </td>
+    <td>
+      {{description}}
+    </td>
+    <td>
+      {{image}}
+    </td>
+    <td>
+      <a class="btn btn-outline-secondary btn-sm" href="/users/update/{{id}}" role="button">
+        Update
+      </a>
+      <a class="btn btn-outline-danger btn-sm" href="/users/delete/{{id}}" role="button">
+        Delete
+      </a>
+    </td>
+  </tr>
+
+  {{/list}}
+</table>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/users/create" role="button">
+    Add a user
+  </a>
+</div>
