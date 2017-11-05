@@ -6,7 +6,6 @@ mongoose.Promise = global.Promise;
 import AdvertSeeds from "../helpers/AdvertSeeds";
 
 let Schema = new mongoose.Schema({
-  id: {type: String};
   title: {type: String },        // title of advert (we can standardize this)
   location: {type: String },        // place of petsitting: city, park,... user can choose detail of information
   description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
