@@ -1,0 +1,53 @@
+<h1>Adverts</h1>
+
+<table class="table">
+ <thead>
+   <th>Name</th>
+   <th>Breed</th>
+   <th>BirthDate</th>
+   <th>Description</th>
+   <th>Image</th>
+ </thead>
+
+  {{#list pets}}
+
+  <tr>
+    <td>
+      <a class="btn btn-secondary btn-sm" href="/pets/id/{{id}}" role="button">
+        {{title}}
+      </a>
+    </td>
+    <td>
+      {{name}}
+    </td>
+    <td>
+      {{breed}}
+    </td>
+    <td>
+      {{birthDate}}
+    </td>
+    <td>
+      {{description}}
+    </td>
+    <td>
+      {{image}}
+    </td>
+     
+    <td>
+      <a class="btn btn-outline-secondary btn-sm" href="/pets/update/{{id}}" role="button">
+        Update
+      </a>
+      <a class="btn btn-outline-danger btn-sm" href="/pets/delete/{{id}}" role="button">
+        Delete
+      </a>
+    </td>
+  </tr>
+
+  {{/list}}
+</table>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/pet/create" role="button">
+    Add a pet
+  </a>
+</div>

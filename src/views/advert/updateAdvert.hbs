@@ -1,0 +1,49 @@
+<h1>Update advert</h1>
+
+<form action="/adverts/update/{{advert.id}}" method="post">
+  <div class="form-group">
+    <label for="title">Title*</label>
+    <input value="{{advert.title}}" class="form-control" type="text" id="title" name="title" placeholder="Demand/supply pet task" required>
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location*</label>
+    <input value="{{advert.location}}" class="form-control" type="text" id="location" name="location" placeholder="London - Regent's park" required>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input value="{{advert.description}}" class="form-control" type="text" id="description" name="description" placeholder="Description of pet sitting task">
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input value="{{advert.type}}" class="form-control" type="Boolean" id="type" name="type" placeholder="0-supply, 1-demand" required>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price*</label>
+    <input value="{{advert.price}}" class="form-control" type="number" id="price" name="price" placeholder="Ex: 30" required>
+  </div>
+
+ <div class="form-group">
+    <label for="date">Date</label>
+    <input value="{{advert.date}}" class="form-control" type="date" id="date" name="date" required>
+  </div>
+
+  <div class="form-group">
+    <label for="userId">User-ID</label>
+    <input value="{{advert.userId}}" class="form-control" type="number" id="userId" name="userId" placeholder="Ex: 0006789">
+  </div>
+
+  <div class="form-group">
+    <label for="petId">Pet-ID</label>
+    <input value="{{advert.petId}}" class="form-control" type="number" id="petId" name="petId" placeholder="Ex: 006789">
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">
+      Update
+    </button>
+  </div>
+</form>

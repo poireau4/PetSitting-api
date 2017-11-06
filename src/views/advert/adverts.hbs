@@ -1,0 +1,61 @@
+<h1>Adverts</h1>
+
+<table class="table">
+ <thead>
+   <th>Title</th>
+   <th>Location</th>
+   <th>Description</th>
+   <th>Type</th>
+   <th>Price</th>
+   <th>Date</th>
+   <th>UserID</th>
+   <th>PetID</th>
+ </thead>
+
+  {{#list adverts}}
+
+  <tr>
+    <td>
+      <a class="btn btn-secondary btn-sm" href="/adverts/id/{{id}}" role="button">
+        {{title}}
+      </a>
+    </td>
+    <td>
+      {{location}}
+    </td>
+    <td>
+      {{description}}
+    </td>
+    <td>
+      {{type}}
+    </td>
+    <td>
+      {{price}}
+    </td>
+    <td>
+      {{date}}
+    </td>
+     <td>
+      {{userId}}
+    </td>
+    <td>
+      {{petId}}
+    </td>
+    <td>
+      <a class="btn btn-outline-secondary btn-sm" href="/adverts/update/{{id}}" role="button">
+        Update
+      </a>
+      <a class="btn btn-outline-danger btn-sm" href="/adverts/delete/{{id}}" role="button">
+        Delete
+      </a>
+    </td>
+  </tr>
+
+  {{/list}}
+</table>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/adverts/create" role="button">
+    Add an advert
+  </a>
+</div>

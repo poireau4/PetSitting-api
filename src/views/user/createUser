@@ -1,0 +1,59 @@
+<h1>Create user</h1>
+
+<form action="/users/create" method="post">
+  <div class="form-group">
+    <label for="userName">Username*</label>
+    <input class="form-control" type="text" id="userName" name="userName" placeholder="mynameis" required>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">Firstname*</label>
+    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Sophie" required>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Lastname*</label>
+    <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Dubois">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email*</label>
+    <input class="form-control" type="text" id="email" name="email" placeholder="sophie.dubois@hotmail.com" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password*</label>
+    <input class="form-control" type="text" id="password" name="password" placeholder="159KyxP" required>
+  </div>
+
+  <div class="form-group">
+    <label for="birthDate">Birthday</label>
+    <input class="form-control" type="date" id="birthDate" name="birthDate">
+  </div>
+
+  <div class="form-group">
+    <label for="location">Address*</label>
+    <input class="form-control" type="text" id="location" name="location" placeholder="1 Rue de la liberation, 75000 Paris, France">
+  </div>
+
+ <div class="form-group">
+    <label for="phoneNumber">Phonenumber*</label>
+    <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" placeholder="+3365427809">
+  </div>
+
+<div class="form-group">
+    <label for="description">description*</label>
+    <input class="form-control" type="text" id="description" name="description" placeholder="Young working lady who loves cats">
+  </div>
+  
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">
+      Create
+    </button>
+  </div>
+</form>
