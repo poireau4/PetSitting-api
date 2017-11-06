@@ -6,16 +6,6 @@ mongoose.Promise = global.Promise;
 import AdvertSeeds from "../helpers/AdvertSeeds";
 
 let Schema = new mongoose.Schema({
-<<<<<<< HEAD
-  title: {type: String },        // title of advert (we can standardize this)
-  location: {type: String },        // place of petsitting: city, park,... user can choose detail of information
-  description: { type: String }, // description of petsitting: walking with my dog, nurishing my cat,...
-  type: { type: Boolean },       // 0-supply, 1-demand
-  price: { type: Number },       // price offered/demanded
-  image: { type: String },       // image of pet (reference to pet category)
-  date: { type: String },        // date of pet sitting
-  user_id: {type: Number}        // id of advertiser
-=======
   title: {type: String },         // title of advert (we can standardize this)
   location: {type: String },      // place of petsitting: city, park,... user can choose detail of information
   description: { type: String },  // description of petsitting: walking with my dog, nurishing my cat,...
@@ -25,7 +15,6 @@ let Schema = new mongoose.Schema({
   userId: { type: String },       // id of advertiser
   petId: { type: String },
   activated: { type: Boolean }    // annonce activée et visible ou non
->>>>>>> frederic
 });
 
 let Model = mongoose.model('Advert', Schema);
