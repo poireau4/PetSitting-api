@@ -1,16 +1,37 @@
 // Liste des erreurs que l'API peut renvoyer
 
 const list = {
-  noShowsError: {
+  noAdvertsError: {
     code: 500,
-    error: 'noShowsError',
-    error_description: 'La base ne contient pas de show'
+    error: 'noAdvertsError',
+    error_description: 'La base ne contient pas d\'annonce'
   },
-  noShowError: {
+  noAdvertError: {
     code: 500,
-    error: 'noShowError',
-    error_description: 'Ce show n\'existe pas'
+    error: 'noAdvertError',
+    error_description: 'Cette annonce n\'existe pas'
   },
+  noUsersError: {
+    code: 500,
+    error: 'noUsersError',
+    error_description: 'La base ne contient pas d\'utilisateur'
+  },
+  noUserError: {
+    code: 500,
+    error: 'noUserError',
+    error_description: 'Cet utilisateur n\'existe pas'
+  },
+  noPetsError: {
+    code: 500,
+    error: 'noPetsError',
+    error_description: 'La base ne contient pas d\'animal'
+  },
+  noUserError: {
+    code: 500,
+    error: 'noPetError',
+    error_description: 'Cet animal n\'existe pas'
+  },
+  // A SUPPRIMER
   noBookingsError: {
     code: 500,
     error: 'noBookingsError',

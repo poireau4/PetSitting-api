@@ -1,4 +1,4 @@
-// Controller de la route '/shows'
+// Controller de la route '/adverts'
 import _ from "lodash";
 import Errors from "../helpers/Errors";
 
@@ -20,17 +20,18 @@ const adverts = () => {
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
     let response = [];
     for (let advert of data){
-      // On parcours data. pour chaque élément, on garde les champs name, venue, description, capacity, price, image et date
+      // On parcours data. pour chaque élément, on garde les champs ...
       response[response.length] = {
-        id: advert.id,
-        title: advert.name,
-        location: advert.venue,
+        id: advert._id,
+        title: advert.title,
+        location: advert.location,
         description: advert.description,
         type: advert.type,
         price: advert.price,
-        image: advert.image,
         date: advert.date,
-        user_id: advert.user_id
+        userId: advert.userId,
+        petId: advert.petId,
+        activated: advert.activated
       }
     }
 
@@ -44,7 +45,7 @@ const advert = (_id) => {
   // Celle ci renvoie l'advert dont l'id est _id
   return AdvertModel.getAdvert(_id)
   .then((data) => {
-    // On récupère ici data qui est une liste de shows
+    // On récupère ici data qui est une liste de adverts
 
     if (data === null) {
       // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
@@ -53,15 +54,16 @@ const advert = (_id) => {
 
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un élement
     let response = {
-      id: advert.id,
-      title: advert.name,
-      location: advert.venue,
+      id: advert._id,
+      title: advert.title,
+      location: advert.location,
       description: advert.description,
       type: advert.type,
       price: advert.price,
-      image: advert.image,
       date: advert.date,
-      user_id: advert.user_id
+      userId: advert.userId,
+      petId: advert.petId,
+      activated: advert.activated
     };
     return response;
   });
@@ -114,15 +116,16 @@ export default {
 
   postCreateAdvert: (req, res) => {
     let advert = {
-      id: req.body.id,
-      title: req.body.name,
-      location: req.body.venue,
+      title: req.body.title,
+      location: req.body.location,
       description: req.body.description,
       type: req.body.type,
       price: req.body.price,
       image: req.body.image,
       date: req.body.date,
-      user_id: req.body.user_id
+      userId: req.body.userId,
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     createAdvert(advert)
@@ -137,7 +140,7 @@ export default {
   getUpdateAdvert: (req, res) => {
     advert(req.params.id)
     .then((data) => {
-      res.render('advert/updateShow', { advert: data });
+      res.render('advert/updateAdvert', { advert: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
@@ -146,15 +149,16 @@ export default {
 
   postUpdateAdvert: (req, res) => {
     let advert = {
-      id: req.body.id,
-      title: req.body.name,
-      location: req.body.venue,
+      title: req.body.title,
+      location: req.body.location,
       description: req.body.description,
       type: req.body.type,
       price: req.body.price,
       image: req.body.image,
       date: req.body.date,
-      user_id: req.body.user_id
+      userId: req.body.userId,
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     updateAdvert(req.params.id, advert)
@@ -183,7 +187,7 @@ export default {
     adverts()
     .then((data) => {
       // data contient maintenant la valeur retournée par la fonction _.sortBy
-      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de shows
+      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de adverts
       res.send(data);
     }, (err) => {
       // Si une erreur a été renvoyée avec la fonctions throw new Error(), nous atterrissons ici
@@ -193,7 +197,7 @@ export default {
   },
 
   getAdvertApi: (req, res) => {
-    show(req.params.id)
+    advert(req.params.id)
     .then((data) => {
       res.send(data);
     }, (err) => {
@@ -204,7 +208,7 @@ export default {
 
   postCreateAdvertApi: (req, res) => {
     let advert = {
-      id: req.body.id,
+      //id: req.body.id,
       title: req.body.name,
       location: req.body.venue,
       description: req.body.description,
@@ -212,7 +216,9 @@ export default {
       price: req.body.price,
       image: req.body.image,
       date: req.body.date,
-      user_id: req.body.user_id
+      userId: req.body.userId,
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
     createAdvert(advert)
@@ -226,18 +232,19 @@ export default {
 
   postUpdateAdvertApi: (req, res) => {
     let advert = {
-      id: req.body.id,
-      title: req.body.name,
-      location: req.body.venue,
+      title: req.body.title,
+      location: req.body.location,
       description: req.body.description,
       type: req.body.type,
       price: req.body.price,
       image: req.body.image,
       date: req.body.date,
-      user_id: req.body.user_id
+      userId: req.body.userId,
+      petId: req.body.petId,
+      activated: req.body.activated
     };
 
-    updateAdvert(req.params.id, show)
+    updateAdvert(req.params.id, advert)
     .then((data) => {
       res.send('Advert successfully updated');
     }, (err) => {
@@ -247,7 +254,7 @@ export default {
   },
 
   postDeleteAdvertApi: (req, res) => {
-    deleteShow(req.params.id)
+    deleteAdvert(req.params.id)
     .then((data) => {
       res.send('Advert successfully deleted');
     }, (err) => {

@@ -3,13 +3,17 @@ import Errors from "../helpers/Errors";
 
 // Récupération du model
 import AdvertModel from "../models/AdvertModel";
-import BookingModel from "../models/BookingModel";
+import UserModel from "../models/UserModel";
+import PetModel from "../models/PetModel";
+import BookingModel from "../models/BookingModel"; // A SUPPRIMER
 
 export default {
   seedDb: (req, res) => {
     return Promise.all([
       AdvertModel.deleteAdverts(),
-      BookingModel.deleteBookings(),
+      UserModel.deleteUsers(),
+      PetModel.deletePets(),
+      BookingModel.deleteBookings() // A SUPPRIMER
     ])
     .then((data) => {
       return Promise.all([
