@@ -31,18 +31,7 @@ const list = {
     error: 'noPetError',
     error_description: 'Cet animal n\'existe pas'
   },
-  // A SUPPRIMER
-  noBookingsError: {
-    code: 500,
-    error: 'noBookingsError',
-    error_description: 'La base ne contient pas de booking'
-  },
-  noBookingError: {
-    code: 500,
-    error: 'noBookingError',
-    error_description: 'Ce booking n\'existe pas'
-  },
-};
+
 
 export default (err) => {
   if (err instanceof Error && err.message){
