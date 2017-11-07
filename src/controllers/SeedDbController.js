@@ -5,15 +5,14 @@ import Errors from "../helpers/Errors";
 import AdvertModel from "../models/AdvertModel";
 import UserModel from "../models/UserModel";
 import PetModel from "../models/PetModel";
-import BookingModel from "../models/BookingModel"; // A SUPPRIMER
+
 
 export default {
   seedDb: (req, res) => {
     return Promise.all([
       AdvertModel.deleteAdverts(),
       UserModel.deleteUsers(),
-      PetModel.deletePets(),
-      BookingModel.deleteBookings() // A SUPPRIMER
+      PetModel.deletePets()
     ])
     .then((data) => {
       return Promise.all([
