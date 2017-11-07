@@ -4,6 +4,7 @@ import Errors from "../helpers/Errors";
 
 // Récupération du model
 import AdvertModel from "../models/AdvertModel";
+import UserModel from"../models/UserModel";
 
 const adverts = () => {
   // On fait appel à la fonction getAdverts du model
