@@ -11,7 +11,7 @@ let Schema = new mongoose.Schema({
   lastName: {type: String },
   email: {type: String },
   password: {type: String },
-  birthDate: {type: String },
+  birthDate: {type: Date },
   location: {type: String },      // address
   phoneNumber: {type: String },
   status: {type: Boolean },       // online = true / offline = false
