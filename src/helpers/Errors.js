@@ -31,7 +31,7 @@ const list = {
     error: 'noPetError',
     error_description: 'Cet animal n\'existe pas'
   },
-
+};
 
 export default (err) => {
   if (err instanceof Error && err.message){
