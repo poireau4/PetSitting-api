@@ -40,16 +40,14 @@ export default {
   createAdvert: (advert) => {
     return Model.create({
       title: advert.title,
-      location: advert.place,        
+      location: advert.location,        
       description: advert.description,
       type: advert.type,        
       price: advert.price,  
       date: advert.date, 
       userId: advert.userId,
       petId: advert.petId,
-      activated: advert.activated,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      activated: advert.activated
     });
   },
 
@@ -63,7 +61,7 @@ export default {
       date: advert.date, 
       userId: advert.userId,
       petId: advert.petId,
-      activated: advert.activated,
+      activated: advert.activated
     }, {upsert: true}).exec();
   },
 
