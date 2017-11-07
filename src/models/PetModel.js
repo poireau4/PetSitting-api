@@ -8,7 +8,7 @@ import PetSeeds from "../helpers/PetSeeds";
 let Schema = new mongoose.Schema({
   name: { type: String },
   breed: { type: String },
-  birthDate: { type: String },
+  birthDate: { type: Date },
   description: { type: String },
   image: { type: String }
 });
