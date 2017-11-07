@@ -92,15 +92,6 @@ server.get('/pets/update/:id', PetController.getUpdatePet);
 server.post('/pets/update/:id', PetController.postUpdatePet);
 server.get('/pets/delete/:id', PetController.getDeletePet);
 
-// A SUPPRIMER
-server.get('/bookings', BookingController.getBookings);
-server.get('/bookings/id/:id', BookingController.getBooking);
-server.get('/bookings/create', BookingController.getCreateBooking);
-server.post('/bookings/create', BookingController.postCreateBooking);
-server.get('/bookings/update/:id', BookingController.getUpdateBooking);
-server.post('/bookings/update/:id', BookingController.postUpdateBooking);
-server.get('/bookings/delete/:id', BookingController.getDeleteBooking);
-
 
 // Routes pour les APIs
 server.get('/api/', HomeController.getIndexApi);
@@ -123,9 +114,4 @@ server.post('/api/pets/create', PetController.postCreatePetApi);
 server.post('/api/pets/update/:id', PetController.postUpdatePetApi);
 server.post('/api/pets/delete/:id', PetController.postDeletePetApi);
 
-// A SUPPRIMER
-server.get('/api/bookings', BookingController.getBookingsApi);
-server.get('/api/bookings/id/:id', BookingController.getBookingApi);
-server.post('/api/bookings/create', BookingController.postCreateBookingApi);
-server.post('/api/bookings/update/:id', BookingController.postUpdateBookingApi);
-server.post('/api/bookings/delete/:id', BookingController.postDeleteBookingApi);
+
