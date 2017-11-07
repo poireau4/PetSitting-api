@@ -10,6 +10,7 @@
    <th>Date</th>
    <th>UserID</th>
    <th>PetID</th>
+   <th>Activated</th>
  </thead>
 
   {{#list adverts}}
@@ -41,6 +42,8 @@
     <td>
       {{petId}}
     </td>
+    <td>
+      {{activated}}
     <td>
       <a class="btn btn-outline-secondary btn-sm" href="/adverts/update/{{id}}" role="button">
         Update
