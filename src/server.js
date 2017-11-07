@@ -19,7 +19,6 @@ import HomeController from "./controllers/HomeController";
 import AdvertController from "./controllers/AdvertController";
 import UserController from "./controllers/UserController";
 import PetController from "./controllers/PetController";
-import BookingController from "./controllers/BookingController"; // A SUPPRIMER
 
 // Configuration du serveur
 const viewsPath = __dirname + '/views/';
