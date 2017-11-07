@@ -56,7 +56,7 @@ export default {
   updateAdvert: (_id, advert) => {
     return Model.findOneAndUpdate({ _id }, {      
       title: advert.title,
-      location: advert.place,        
+      location: advert.location,        
       description: advert.description,
       type: advert.type,        
       price: advert.price,   
@@ -64,7 +64,6 @@ export default {
       userId: advert.userId,
       petId: advert.petId,
       activated: advert.activated,
-      updatedAt: new Date()
     }, {upsert: true}).exec();
   },
 
