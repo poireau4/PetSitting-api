@@ -27,7 +27,8 @@ const pets = () => {
         breed: pet.breed,
         birthDate: pet.birthDate,
         description: pet.description,
-        image: pet.image
+        image: pet.image,
+        ownerId: pet.ownerId
       }
     }
 
@@ -55,7 +56,8 @@ const pet = (_id) => {
       breed: pet.breed,
       birthDate: pet.birthDate,
       description: pet.description,
-      image: pet.image
+      image: pet.image,
+      ownerId: pet.ownerId
     };
     return response;
   });
@@ -122,7 +124,8 @@ export default {
       breed: req.body.breed,
       birthDate: req.body.birthDate,
       description: req.body.description,
-      image: req.body.image
+      image: req.body.image,
+      ownerId: req.body.ownerId
     };
 
     createPet(pet)
@@ -150,7 +153,8 @@ export default {
       breed: req.body.breed,
       birthDate: req.body.birthDate,
       description: req.body.description,
-      image: req.body.image
+      image: req.body.image,
+      ownerId: req.body.ownerId
     };
 
     updatePet(req.params.id, pet)
@@ -204,7 +208,8 @@ export default {
       breed: req.body.breed,
       birthDate: req.body.birthDate,
       description: req.body.description,
-      image: req.body.image
+      image: req.body.image,
+      ownerId: req.body.ownerId
     };
 
     createPet(pet)
@@ -222,7 +227,8 @@ export default {
       breed: req.body.breed,
       birthDate: req.body.birthDate,
       description: req.body.description,
-      image: req.body.image
+      image: req.body.image,
+      ownerId: req.body.ownerId
     };
 
     updatePet(req.params.id, pet)

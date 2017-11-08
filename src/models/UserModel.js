@@ -14,7 +14,6 @@ let Schema = new mongoose.Schema({
   birthDate: {type: Date },
   location: {type: String },      // address
   phoneNumber: {type: String },
-  tabPet: {type: Array },         // all pets owned
   description: { type: String },  // description of habits
   image: { type: String },        // image of himself
 });
@@ -27,7 +26,7 @@ export default {
   seedUser: () => {
     let promises = [];
     for (let user of UserSeeds){
-      promises[promises.legth] = Model.create(user);
+      promises[promises.length] = Model.create(user);
     }
     return Promise.all(promises);
   },
@@ -50,7 +49,6 @@ export default {
       birthDate: user.birthDate,
       location: user.location,
       phoneNumber: user.phoneNumber,
-      tabPet: user.tabPet,
       description: user.description, 
       image: user.image,
     });
@@ -66,7 +64,6 @@ export default {
       birthDate: user.birthDate,
       location: user.location,
       phoneNumber: user.phoneNumber,
-      tabPet: user.tabPet,
       description: user.description,
       image: user.image,
     }, {upsert: true}).exec();

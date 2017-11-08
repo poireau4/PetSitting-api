@@ -10,7 +10,8 @@ let Schema = new mongoose.Schema({
   breed: { type: String },
   birthDate: { type: Date },
   description: { type: String },
-  image: { type: String }
+  image: { type: String },
+  ownerId: { type: Number}
 });
 
 let Model = mongoose.model('Pet', Schema);
@@ -20,7 +21,7 @@ export default {
   seedPet: () => {
     let promises = [];
     for (let pet of PetSeeds){
-      promises[promises.legth] = Model.create(pet);
+      promises[promises.length] = Model.create(pet);
     }
     return Promise.all(promises);
   },
@@ -39,7 +40,8 @@ export default {
       breed: pet.breed,
       birthDate: pet.birthDate,
       description: pet.description,
-      image: pet.image
+      image: pet.image,
+      ownerId: pet.ownerId
     });
   },
 
@@ -49,7 +51,8 @@ export default {
       breed: pet.breed,
       birthDate: pet.birthDate,
       description: pet.description,
-      image: pet.image
+      image: pet.image,
+      ownerId: pet.ownerId
     }, {upsert: true}).exec();
   },
 

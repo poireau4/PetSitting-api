@@ -31,7 +31,6 @@ const users = () => {
         birthDate: user.birthDate,
         location: user.location,
         phoneNumber: user.phoneNumber,
-        tabPet: user.tabPet,
         description: user.description, 
         image: user.image
       }
@@ -65,7 +64,6 @@ const user = (_id) => {
       birthDate: user.birthDate,
       location: user.location,
       phoneNumber: user.phoneNumber,
-      tabPet: user.tabPet,
       description: user.description, 
       image: user.image
     };
@@ -128,7 +126,6 @@ export default {
       birthDate: req.body.birthDate,
       location: req.body.location,
       phoneNumber: req.body.phoneNumber,
-      tabPet: req.body.tabPet,
       description: req.body.description, 
       image: req.body.image
     };
@@ -162,7 +159,6 @@ export default {
       birthDate: req.body.birthDate,
       location: req.body.location,
       phoneNumber: req.body.phoneNumber,
-      tabPet: req.body.tabPet,
       description: req.body.description, 
       image: req.body.image
     };
@@ -222,7 +218,6 @@ export default {
       birthDate: req.body.birthDate,
       location: req.body.location,
       phoneNumber: req.body.phoneNumber,
-      tabPet: req.body.tabPet,
       description: req.body.description, 
       image: req.body.image
     };
@@ -246,7 +241,6 @@ export default {
       birthDate: req.body.birthDate,
       location: req.body.location,
       phoneNumber: req.body.phoneNumber,
-      tabPet: req.body.tabPet,
       description: req.body.description, 
       image: req.body.image
     };
