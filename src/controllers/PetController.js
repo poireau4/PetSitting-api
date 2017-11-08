@@ -91,7 +91,17 @@ export default {
       res.status(Errors(err).code).send(Errors(err));
     });
   },
-
+/*
+  getPetByUserId: (req, res) => {
+    pet(req.params.id)
+    .then((data) => {
+      res.render('pet/pet', { pet: data });
+    }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+*/
   getPet: (req, res) => {
     pet(req.params.id)
     .then((data) => {

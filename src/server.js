@@ -85,6 +85,7 @@ server.get('/users/delete/:id', UserController.getDeleteUser);
 
 server.get('/pets', PetController.getPets);
 server.get('/pets/id/:id', PetController.getPet);
+//server.get('/pets/byuserid/:userid', PetController.getPetByUserId); // A CREER
 server.get('/pets/create', PetController.getCreatePet);
 server.post('/pets/create', PetController.postCreatePet);
 server.get('/pets/update/:id', PetController.getUpdatePet);
