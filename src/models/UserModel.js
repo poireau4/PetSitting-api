@@ -14,7 +14,7 @@ let Schema = new mongoose.Schema({
   birthDate: {type: Date },
   location: {type: String },      // address
   phoneNumber: {type: String },
-  tabPet: {type: String },        // all pets owned
+  tabPet: {type: Array },         // all pets owned
   description: { type: String },  // description of habits
   image: { type: String },        // image of himself
 });
