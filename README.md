@@ -4,3 +4,4 @@ This repository will serve as API for the pet sitting app we are making. We can 
 
 - still not possible to update advert
 - still not possible to update pet
+- still not possible to update user
