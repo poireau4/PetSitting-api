@@ -11,7 +11,7 @@ let Schema = new mongoose.Schema({
   birthDate: { type: Date },
   description: { type: String },
   image: { type: String },
-  ownerId: { type: Number}
+  ownerId: { type: String}
 });
 
 let Model = mongoose.model('Pet', Schema);
