@@ -1,5 +1,6 @@
 // Controller de la route '/pets'
 import _ from "lodash";
+import moment from "moment";
 import Errors from "../helpers/Errors";
 
 // Récupération du model
@@ -41,10 +42,10 @@ const pet = (_id) => {
   // On fait appel à la fonction getPet du model
   // Celle ci renvoie l'pet dont l'id est _id
   return PetModel.getPet(_id)
-  .then((data) => {
+  .then((pet) => {
     // On récupère ici data qui est une liste de pets
 
-    if (data === null) {
+    if (pet === null) {
       // Si data est vide, nous renvoyons l'erreur 'noPetError'
       throw new Error('noPetError');
     }
@@ -87,6 +88,7 @@ export default {
     pets()
     .then((data) => {
       // data contient une liste d'pets
+      data.forEach(p => {p.birthDate = moment(p.birthDate).format('Do MMMM YYYY')});
       res.render('pet/pets', { pets: data });
     }, (err) => {
       console.log(err);

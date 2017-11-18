@@ -45,10 +45,10 @@ const user = (_id) => {
   // On fait appel à la fonction getUser du model
   // Celle ci renvoie l'user dont l'id est _id
   return UserModel.getUser(_id)
-  .then((data) => {
+  .then((user) => {
     // On récupère ici data qui est une liste de users
 
-    if (data === null) {
+    if (user === null) {
       // Si data est vide, nous renvoyons l'erreur 'noUserError'
       throw new Error('noUserError');
     }
@@ -150,6 +150,7 @@ export default {
   },
 
   postUpdateUser: (req, res) => {
+    console.error(req.body);
     let user = {
       userName: req.body.userName,
       fistName: req.body.fistName,

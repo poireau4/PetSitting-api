@@ -1,5 +1,6 @@
 // Controller de la route '/adverts'
 import _ from "lodash";
+import moment from "moment";
 import Errors from "../helpers/Errors";
 
 // Récupération du model
@@ -45,10 +46,10 @@ const advert = (_id) => {
   // On fait appel à la fonction getAdvert du model
   // Celle ci renvoie l'advert dont l'id est _id
   return AdvertModel.getAdvert(_id)
-  .then((data) => {
+  .then((advert) => {
     // On récupère ici data qui est une liste de adverts
 
-    if (data === null) {
+    if (advert === null) {
       // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
       throw new Error('noAdvertError');
     }
@@ -94,6 +95,7 @@ export default {
     adverts()
     .then((data) => {
       // data contient une liste d'adverts
+      data.forEach(a => {a.date = moment(a.date).format('Do MMMM YYYY')});
       res.render('advert/adverts', { adverts: data });
     }, (err) => {
       console.log(err);
