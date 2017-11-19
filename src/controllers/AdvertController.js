@@ -15,7 +15,7 @@ const adverts = () => {
     // On récupère ici data qui est une liste d'advert
 
     if (data === null) {
-      // Si data est vide, nous renvoyons l'erreur 'noAdvertsError'
+      // Si data est vide, nous renvoyons l'erreur 'noAdvertsError' 
       throw new Error('noAdvertsError');
     }
 
