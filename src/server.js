@@ -49,7 +49,9 @@ server.use((req, res, next) => {
 });
 
 // Connection à la base de donnée
-mongoose.connect('mongodb://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@' + config.bddUri, {}, (err, res) => {
+
+/////mongoose.connect('mongodb://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@' + config.bddUri, {}, (err, res) => {
+mongoose.connect('mongodb://' + 'test-user' + ':' + 'test-password' + '@' + config.bddUri, {}, (err, res) => {
   if (err) {
     // La connection a échouée
     console.log('Mongo error:' + config.bddUri + '. ' + err);
