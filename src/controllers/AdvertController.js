@@ -72,13 +72,13 @@ const advert = (_id) => {
 }
 
 const advertsByUserId = (userId) => {
-  // On fait appel à la fonction getAdvert du model
-  // Celle ci renvoie l'advert dont l'id est _id
+  // On fait appel à la fonction getAdvertsByUserId du model
+  // Celle ci renvoie l'advert dont l'userId est userId
   return AdvertModel.getAdvertsByUserId(userId)
-  .then((advertsByUserId) => {
+  .then((data) => {
     // On récupère ici data qui est une liste de adverts
 
-    if (advertsByUserId === null) {
+    if (data === null) {
       // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
       throw new Error('noAdvertError');
     }
@@ -111,10 +111,10 @@ const advertsByType = (type) => {
   // On fait appel à la fonction getAdvert du model
   // Celle ci renvoie l'advert dont l'id est _id
   return AdvertModel.getAdvertsByType(type)
-  .then((advertsByType) => {
+  .then((data) => {
     // On récupère ici data qui est une liste de adverts
 
-    if (advertsByType === null) {
+    if (data === null) {
       // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
       throw new Error('noAdvertError');
     }
