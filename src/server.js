@@ -71,6 +71,8 @@ server.get('/', HomeController.getIndex);
 
 server.get('/adverts', AdvertController.getAdverts);
 server.get('/adverts/id/:id', AdvertController.getAdvert);
+server.get('/adverts/type/:type', AdvertController.getAdvertsByTypeApi);
+server.get('/adverts/userid/:userId', AdvertController.getAdvertsByUserIdApi);
 server.get('/adverts/create', AdvertController.getCreateAdvert);
 server.post('/adverts/create', AdvertController.postCreateAdvert);
 server.get('/adverts/update/:id', AdvertController.getUpdateAdvert);
@@ -100,6 +102,8 @@ server.get('/api/', HomeController.getIndexApi);
 
 server.get('/api/adverts', AdvertController.getAdvertsApi);
 server.get('/api/adverts/id/:id', AdvertController.getAdvertApi);
+server.get('/api/adverts/type/:type', AdvertController.getAdvertsByTypeApi);
+server.get('/api/adverts/userid/:userId', AdvertController.getAdvertsByUserIdApi);
 server.post('/api/adverts/create', AdvertController.postCreateAdvertApi);
 server.post('/api/adverts/update/:id', AdvertController.postUpdateAdvertApi);
 server.post('/api/adverts/delete/:id', AdvertController.postDeleteAdvertApi);

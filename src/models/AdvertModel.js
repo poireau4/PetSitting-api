@@ -37,6 +37,14 @@ export default {
     return Model.findOne({ _id }).exec();
   },
 
+  getAdvertsByUserId: (userId) => {
+    return Model.find({ "userId": userId }).exec();
+  },
+
+  getAdvertsByType: (type) => {
+    return Model.find({ "type": type }).exec();
+  },
+
   createAdvert: (advert) => {
     return Model.create({
       title: advert.title,

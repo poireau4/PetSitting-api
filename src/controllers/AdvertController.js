@@ -71,6 +71,77 @@ const advert = (_id) => {
   });
 }
 
+const advertsByUserId = (userId) => {
+  // On fait appel à la fonction getAdvert du model
+  // Celle ci renvoie l'advert dont l'id est _id
+  return AdvertModel.getAdvertsByUserId(userId)
+  .then((advertsByUserId) => {
+    // On récupère ici data qui est une liste de adverts
+
+    if (advertsByUserId === null) {
+      // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
+      throw new Error('noAdvertError');
+    }
+
+
+    // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
+    let response = [];
+    for (let advert of data){
+      // On parcours data. pour chaque élément, on garde les champs ...
+      response[response.length] = {
+        id: advert._id,
+        title: advert.title,
+        location: advert.location,
+        description: advert.description,
+        type: advert.type,
+        price: advert.price,
+        date: advert.date,
+        userId: advert.userId,
+        petId: advert.petId,
+        activated: advert.activated
+      }
+    }
+
+    // Avant d'envoyer la réponse on la tri par ordre de date
+    return _.sortBy(response, 'date');
+  });
+}
+
+const advertsByType = (type) => {
+  // On fait appel à la fonction getAdvert du model
+  // Celle ci renvoie l'advert dont l'id est _id
+  return AdvertModel.getAdvertsByType(type)
+  .then((advertsByType) => {
+    // On récupère ici data qui est une liste de adverts
+
+    if (advertsByType === null) {
+      // Si data est vide, nous renvoyons l'erreur 'noAdvertError'
+      throw new Error('noAdvertError');
+    }
+
+    // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
+    let response = [];
+    for (let advert of data){
+      // On parcours data. pour chaque élément, on garde les champs ...
+      response[response.length] = {
+        id: advert._id,
+        title: advert.title,
+        location: advert.location,
+        description: advert.description,
+        type: advert.type,
+        price: advert.price,
+        date: advert.date,
+        userId: advert.userId,
+        petId: advert.petId,
+        activated: advert.activated
+      }
+    }
+
+    // Avant d'envoyer la réponse on la tri par ordre de date
+    return _.sortBy(response, 'date');
+  });
+}
+
 const createAdvert = (advert) => {
   // On fait appel à la fonction createAdvert du model
   // Celle ci renvoie l'advert dont l'id est _id
@@ -107,6 +178,26 @@ export default {
     advert(req.params.id)
     .then((data) => {
       res.render('advert/advert', { advert: data });
+    }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
+  getAdvertsByUserId: (req, res) => {
+    advertsByUserId(req.params.userId)
+    .then((data) => {
+      res.render('advert/adverts', { advert: data }); // A SURVEILLER
+    }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
+  getAdvertsByType: (req, res) => {
+    advertsByType(req.params.type)
+    .then((data) => {
+      res.render('advert/adverts', { advert: data }); // A SURVEILLER
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
@@ -209,9 +300,28 @@ export default {
     });
   },
 
+  getAdvertsByUserIdApi: (req, res) => {
+    advertsByUserId(req.params.userId)
+    .then((data) => {
+      res.send(data);
+    }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
+  getAdvertsByTypeApi: (req, res) => {
+    advertsByType(req.params.type)
+    .then((data) => {
+      res.send(data);
+    }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
   postCreateAdvertApi: (req, res) => {
     let advert = {
-      //id: req.body.id,
       title: req.body.name,
       location: req.body.venue,
       description: req.body.description,
