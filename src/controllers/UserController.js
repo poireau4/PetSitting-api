@@ -24,7 +24,7 @@ const users = () => {
       response[response.length] = {
         id: user._id,
         userName: user.userName,
-        firsTname: user.firsTname,
+        firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
         password: user.password,
@@ -57,7 +57,7 @@ const user = (_id) => {
     let response = {
       id: user._id,
       userName: user.userName,
-      firsTname: user.firsTname,
+      firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
       password: user.password,
@@ -95,6 +95,7 @@ export default {
     users()
     .then((data) => {
       // data contient une liste d'users
+      data.forEach(u => {u.birthDate = moment(u.birthDate).format('Do MMMM YYYY')}); 
       res.render('user/users', { users: data });
     }, (err) => {
       console.log(err);
@@ -105,6 +106,7 @@ export default {
   getUser: (req, res) => {
     user(req.params.id)
     .then((data) => {
+      data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
       res.render('user/user', { user: data });
     }, (err) => {
       console.log(err);
@@ -119,7 +121,7 @@ export default {
   postCreateUser: (req, res) => {
     let user = {
       userName: req.body.userName,
-      firsTname: req.body.firsTname,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -153,7 +155,7 @@ export default {
     console.error(req.body);
     let user = {
       userName: req.body.userName,
-      firsTname: req.body.firsTname,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -212,7 +214,7 @@ export default {
   postCreateUserApi: (req, res) => {
     let user = {
       userName: req.body.userName,
-      firsTname: req.body.firsTname,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -235,7 +237,7 @@ export default {
   postUpdateUserApi: (req, res) => {
     let user = {
       userName: req.body.userName,
-      firsTname: req.body.firsTname,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
