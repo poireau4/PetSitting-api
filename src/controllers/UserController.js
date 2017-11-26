@@ -106,7 +106,7 @@ export default {
   getUser: (req, res) => {
     user(req.params.id)
     .then((data) => {
-      data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
+      //data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
       res.render('user/user', { user: data });
     }, (err) => {
       console.log(err);
