@@ -239,7 +239,7 @@ export default {
     });
   },
 
-  getPetsApi: (req, res) => {
+  getPetsByOwnerIdApi: (req, res) => {
     petsByOwnerId(req.params.ownerId)
     .then((data) => {
       // data contient maintenant la valeur retournée par la fonction _.sortBy
