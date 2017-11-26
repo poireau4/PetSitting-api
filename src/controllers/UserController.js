@@ -96,7 +96,7 @@ export default {
     users()
     .then((data) => {
       // data contient une liste d'users
-      data.forEach(u => {u.birthDate = moment(u.birthDate).format('Do MMMM YYYY')}); 
+      data.forEach(u => {u.birthDate = moment(u.birthDate).format('l')}); 
       res.render('user/users', { users: data });
     }, (err) => {
       console.log(err);
@@ -107,7 +107,7 @@ export default {
   getUser: (req, res) => {
     user(req.params.id)
     .then((data) => {
-      data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
+      data.birthDate = moment(data.birthDate).format('l');
       res.render('user/user', { user: data });
     }, (err) => {
       console.log(err);

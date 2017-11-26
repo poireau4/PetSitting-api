@@ -88,7 +88,7 @@ export default {
     pets()
     .then((data) => {
       // data contient une liste d'pets
-      data.forEach(p => {p.birthDate = moment(p.birthDate).format('Do MMMM YYYY')}); 
+      data.forEach(p => {p.birthDate = moment(p.birthDate).format('l')}); 
       res.render('pet/pets', { pets: data });
     }, (err) => {
       console.log(err);
