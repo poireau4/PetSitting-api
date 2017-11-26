@@ -116,6 +116,7 @@ server.post('/api/users/delete/:id', UserController.postDeleteUserApi);
 
 server.get('/api/pets', PetController.getPetsApi);
 server.get('/api/pets/id/:id', PetController.getPetApi);
+server.get('/api/pets/ownerid/:id', PetController.getPetsByOwnerIdApi);
 server.post('/api/pets/create', PetController.postCreatePetApi);
 server.post('/api/pets/update/:id', PetController.postUpdatePetApi);
 server.post('/api/pets/delete/:id', PetController.postDeletePetApi);

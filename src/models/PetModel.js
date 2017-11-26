@@ -34,6 +34,10 @@ export default {
     return Model.findOne({ _id }).exec();
   },
 
+  getPetsByOwnerId: (ownerId) => {
+    return Model.find({ "ownerId"; ownerId }).exec();
+  },
+
   createPet: (pet) => {
     return Model.create({
       name: pet.name,

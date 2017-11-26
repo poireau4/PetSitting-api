@@ -64,6 +64,38 @@ const pet = (_id) => {
   });
 }
 
+const petsByOwnerId = (ownerId) => {
+  // On fait appel à la fonction getPets du model
+  // Celle ci renvoie toutes les pets présents en base
+  return PetModel.getPetsByOwnerId(ownerId)
+  .then((data) => {
+    // On récupère ici data qui est une liste d'pet
+
+    if (data === null) {
+      // Si data est vide, nous renvoyons l'erreur 'noPetsError'
+      throw new Error('noPetsError');
+    }
+
+    // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
+    let response = [];
+    for (let pet of data){
+      // On parcours data. pour chaque élément, on garde les champs name, venue, description, capacity, price, image et date
+      response[response.length] = {
+        id: pet._id,
+        name: pet.name,
+        breed: pet.breed,
+        birthDate: pet.birthDate,
+        description: pet.description,
+        image: pet.image,
+        ownerId: pet.ownerId
+      }
+    }
+
+    // Avant d'envoyer la réponse on la tri par ordre de date
+    return _.sortBy(response, 'name');
+  });
+}
+
 const createPet = (pet) => {
   // On fait appel à la fonction createPet du model
   // Celle ci renvoie le pet dont l'id est _id (???)
@@ -95,22 +127,24 @@ export default {
       res.status(Errors(err).code).send(Errors(err));
     });
   },
-/*
-  getPetByUserId: (req, res) => {
+
+  getPet: (req, res) => {
     pet(req.params.id)
     .then((data) => {
+      data.birthDate = moment(data.birthDate).format('l');
       res.render('pet/pet', { pet: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
-*/
-  getPet: (req, res) => {
-    pet(req.params.id)
+
+  getPetsByOwnerId: (req, res) => {
+    petsByOwnerId(req.params.ownerId)
     .then((data) => {
-      data.birthDate = moment(data.birthDate).format('l');
-      res.render('pet/pet', { pet: data });
+      // data contient une liste d'pets
+      data.forEach(p => {p.birthDate = moment(p.birthDate).format('l')}); 
+      res.render('pet/pets', { pets: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
@@ -200,6 +234,19 @@ export default {
     .then((data) => {
       res.send(data);
     }, (err) => {
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
+  getPetsApi: (req, res) => {
+    petsByOwnerId(req.params.ownerId)
+    .then((data) => {
+      // data contient maintenant la valeur retournée par la fonction _.sortBy
+      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de pets
+      res.send(data);
+    }, (err) => {
+      // Si une erreur a été renvoyée avec la fonctions throw new Error(), nous atterrissons ici
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
