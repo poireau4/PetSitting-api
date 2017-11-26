@@ -1,7 +1,7 @@
 export default [
   {
     userName: "Grudu",
-    fistName: "bidule",
+    firstName: "bidule",
     lastName: "machin",
     email: "bidule.machin@gmail.com",
     password: "yolo47",

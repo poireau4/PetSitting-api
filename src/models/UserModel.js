@@ -7,7 +7,7 @@ import UserSeeds from "../helpers/UserSeeds";
 
 let Schema = new mongoose.Schema({
   userName: {type: String },
-  fistName: {type: String },
+  firsTname: {type: String },
   lastName: {type: String },
   email: {type: String },
   password: {type: String },
@@ -42,7 +42,7 @@ export default {
   createUser: (user) => {
     return Model.create({
       userName: user.userName,
-      fistName: user.fistName,
+      firsTname: user.firsTname,
       lastName: user.lastName,
       email: user.email,
       password: user.password,
@@ -57,7 +57,7 @@ export default {
   updateUser: (_id, user) => {
     return Model.findOneAndUpdate({ _id }, {      
       userName: user.userName,
-      fistName: user.fistName,
+      firsTname: user.firsTname,
       lastName: user.lastName,
       email: user.email,
       password: user.password,
