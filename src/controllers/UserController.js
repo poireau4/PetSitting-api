@@ -1,5 +1,6 @@
 // Controller de la route '/users'
 import _ from "lodash";
+import moment from "moment";
 import Errors from "../helpers/Errors";
 
 // Récupération du model
@@ -106,7 +107,7 @@ export default {
   getUser: (req, res) => {
     user(req.params.id)
     .then((data) => {
-      //data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
+      data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
       res.render('user/user', { user: data });
     }, (err) => {
       console.log(err);
