@@ -140,7 +140,7 @@ export default {
   },
 
   getPetsByOwnerId: (req, res) => {
-    petsByOwnerId(req.params.ownerId)
+    petsByOwnerId(req.params.id)
     .then((data) => {
       // data contient une liste d'pets
       data.forEach(p => {p.birthDate = moment(p.birthDate).format('l')}); 
@@ -240,7 +240,7 @@ export default {
   },
 
   getPetsByOwnerIdApi: (req, res) => {
-    petsByOwnerId(req.params.ownerId)
+    petsByOwnerId(req.params.id)
     .then((data) => {
       // data contient maintenant la valeur retournée par la fonction _.sortBy
       // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de pets
