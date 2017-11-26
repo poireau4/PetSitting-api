@@ -24,7 +24,7 @@ const users = () => {
       response[response.length] = {
         id: user._id,
         userName: user.userName,
-        fistName: user.fistName,
+        firsTname: user.firsTname,
         lastName: user.lastName,
         email: user.email,
         password: user.password,
@@ -57,7 +57,7 @@ const user = (_id) => {
     let response = {
       id: user._id,
       userName: user.userName,
-      fistName: user.fistName,
+      firsTname: user.firsTname,
       lastName: user.lastName,
       email: user.email,
       password: user.password,
@@ -119,7 +119,7 @@ export default {
   postCreateUser: (req, res) => {
     let user = {
       userName: req.body.userName,
-      fistName: req.body.fistName,
+      firsTname: req.body.firsTname,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -153,7 +153,7 @@ export default {
     console.error(req.body);
     let user = {
       userName: req.body.userName,
-      fistName: req.body.fistName,
+      firsTname: req.body.firsTname,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -212,7 +212,7 @@ export default {
   postCreateUserApi: (req, res) => {
     let user = {
       userName: req.body.userName,
-      fistName: req.body.fistName,
+      firsTname: req.body.firsTname,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
@@ -235,7 +235,7 @@ export default {
   postUpdateUserApi: (req, res) => {
     let user = {
       userName: req.body.userName,
-      fistName: req.body.fistName,
+      firsTname: req.body.firsTname,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
