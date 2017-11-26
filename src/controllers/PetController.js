@@ -109,7 +109,7 @@ export default {
   getPet: (req, res) => {
     pet(req.params.id)
     .then((data) => {
-      data.birthDate = moment(data.birthDate).format('Do MMMM YYYY');
+      data.birthDate = moment(data.birthDate).format('l');
       res.render('pet/pet', { pet: data });
     }, (err) => {
       console.log(err);
